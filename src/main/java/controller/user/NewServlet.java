@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Timestamp;
 
 @WebServlet("/users/new")
 public class NewServlet extends HttpServlet {
@@ -23,16 +22,17 @@ public class NewServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // user インスタンスの生成
-        Timestamp currentTime =
-            new Timestamp(System.currentTimeMillis());
         User user = new User(
             null,
-            currentTime,
-            currentTime,
+            null,
+            null,
             name,
             email,
             password
         );
+
+        // user を DB に登録
+        user.createUser();
 
         // リクエストスコープにインスタンスを保存
         // "user" という名前で、user インスタンスを保存
