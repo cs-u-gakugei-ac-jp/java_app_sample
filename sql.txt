@@ -1,0 +1,35 @@
+mysqlのコンテナの中に入る方法
+
+docker exec -it java_app_sample-db-1 bash 
+
+
+mysqlにログインする方法
+mysql -u root -p
+
+
+
+ユーザーテーブル
+
+
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(100) NOT NULL UNIQUE
+);
+
+
+値入力
+INSERT INTO users (user_name) VALUES ('Yamada Taro');
+INSERT INTO users (user_name) VALUES ('Sato Hanako');
+INSERT INTO users (user_name) VALUES ('Tanaka Satoshi');
+
+製品テーブル
+
+CREATE TABLE products (
+    product_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(200) NOT NULL,
+    product_number INTEGER NOT NULL
+);
+
+INSERT INTO products (product_name,product_number) VALUES ('iphone',10);
+INSERT INTO products (product_name,product_number) VALUES ('ipad',20);
+INSERT INTO products (product_name,product_number) VALUES ('Macbook',30);

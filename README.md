@@ -75,3 +75,11 @@ $ docker-compose up
 出力の指示に従い、入力を行えば新たにプロジェクトを生成できるはずです。
 
 `$ sh bin/regenerate.sh`
+
+
+
+##　ポート番号について
+PROJECT_NAME=java_app_sample
+DB_PORT=3306
+APP_PORT=8080
+DB_NAME=test_db
